@@ -1,5 +1,20 @@
 import matplotlib.pyplot as plt
 def plot_outl(df,serie):
+  '''
+  Functie primeste ca parametri un `df` (df=) si o coloanala/linie din `df` (serie)
+
+  Parametrii functiei:
+  df=
+    numele df-ului
+  serie=
+    numele seriei pentru care se afiseaza outliers
+
+  Return:
+  Functia intoarce un grafic cu outliers pentru seria respectiva
+  
+  Exemplu de utilizare:
+  plot_outl(df, 'dist')
+  '''
   mean_ = df[serie].mean()
   std_ = df[serie].std()
   ulimit = mean_+2*std_
