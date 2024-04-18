@@ -16,7 +16,7 @@ def plot_outl(df, serie, prag=3):
   Functia intoarce un grafic cu outliers pentru seria respectiva
   
   Exemplu de utilizare:
-  plot_outl(df, 'dist')
+  plot_outl(df, 'dist', 2)
   '''
   mean_ = df[serie].mean()
   std_ = df[serie].std()
@@ -55,7 +55,7 @@ def plot_outl(df, serie, prag=3):
   s.set_linewidth(1)
   s.set_linestyle(':')
   #---
-  ax.set_title('Line Plot with Outliers', fontsize=17, fontweight='bold', pad=20)
+  ax.set_title(f'Line Plot with Outliers (seria: {serie})', fontsize=17, fontweight='bold', pad=20)
   # ax.set_title('Line Plot with Outliers')
   ax.grid(True, linestyle='--', linewidth=0.5)
   ax.set_ylim(df[serie].min() - 0.005, df[serie].max() + 0.005)
