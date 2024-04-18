@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 def plot_outl(df,serie):
   mean_ = df[serie].mean()
   std_ = df[serie].std()
