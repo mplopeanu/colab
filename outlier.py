@@ -6,11 +6,11 @@ def plot_outl(df, serie, prag=3):
 
   Parametrii functiei:
   df=
-    numele df-ului (df)
+    (str) numele df-ului
   serie=
-    numele seriei pentru care se afiseaza outliers (str)
+    (str) numele seriei pentru care se afiseaza outliers
   prag=
-    parametru optional, ce furnizeaza valoarea de prag pentru care se calculeaza 'outliers'
+    (int) parametru optional, ce furnizeaza valoarea de prag pentru care se calculeaza 'outliers'
 
   Return:
   Functia intoarce un grafic cu outliers pentru seria respectiva
@@ -20,24 +20,24 @@ def plot_outl(df, serie, prag=3):
   '''
   mean_ = df[serie].mean()
   std_ = df[serie].std()
-  ulimit = mean_+2*std_
-  llimit = mean_-2*std_
+  llimit = mean_-prag*std_
+  ulimit = mean_+prag*std_
 
-  df['outl'] = df.apply(lambda row:
+  df[f'outl_{serie}'] = df.apply(lambda row:
                         'red'
-                        if row[serie] < (mean_-2*std_)
-                        or row[serie] > (mean_+2*std_)
+                        if row[serie] < llimit
+                        or row[serie] > ulimit
                         else 'blue',
                         axis=1)
-  df['outl_size'] = df.apply(lambda row:
+  df['outl_size_{serie}'] = df.apply(lambda row:
                         50
-                        if row[serie] < (mean_-2*std_)
-                        or row[serie] > (mean_+2*std_)
+                        if row[serie] < llimit
+                        or row[serie] > ulimit
                         else 10,
                         axis=1)
 
-  color_list = df['outl'].to_list()
-  size_list = df['outl_size'].to_list()
+  color_list = df[f'outl_{serie}'].to_list()
+  size_list = df['outl_size_{serie}'].to_list()
 
   fig, ax = plt.subplots(figsize=(10,5))
   fig.set_dpi(150)
