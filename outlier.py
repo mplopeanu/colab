@@ -1,5 +1,4 @@
 def plot_outl(df,serie):
-  matplotlib.pyplot as plt
   mean_ = df[serie].mean()
   std_ = df[serie].std()
   ulimit = mean_+2*std_
