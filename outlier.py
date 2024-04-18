@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 def plot_outl(df, serie, prag=3):
   '''Graficul cu outliers al unei serii Pandas
   - Functia primeste ca parametri un `df` (df=) si o coloanala/linie din `df` (serie)
