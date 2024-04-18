@@ -48,4 +48,3 @@ def plot_outl(df,serie):
 
   ax.legend(loc='best', fontsize=3, prop={'style':'italic'},
             title="Legendă:", title_fontproperties={'weight':'bold'})
-  plt.show()
