@@ -37,7 +37,7 @@ def plot_outl(df, serie, prag=3):
                         axis=1)
 
   color_list = df[f'outl_{serie}'].to_list()
-  size_list = df['outl_size_{serie}'].to_list()
+  size_list = df[f'outl_size_{serie}'].to_list()
 
   fig, ax = plt.subplots(figsize=(10,5))
   fig.set_dpi(150)
