@@ -22,19 +22,6 @@ def plot_outl(df, serie, prag=3):
   llimit = mean_-prag*std_
   ulimit = mean_+prag*std_
 
-  #   df['outl'] = df.apply(lambda row:
-#                         'red'
-#                         if row[serie] < (mean_-2*std_)
-#                         or row[serie] > (mean_+2*std_)
-#                         else 'blue',
-#                         axis=1)
-#   df['outl_size'] = df.apply(lambda row:
-#                         50
-#                         if row[serie] < (mean_-2*std_)
-#                         or row[serie] > (mean_+2*std_)
-#                         else 10,
-#                         axis=1)
-
   df[f'outl_{serie}'] = df.apply(lambda row:
                         'red'
                         if row[serie] < llimit
